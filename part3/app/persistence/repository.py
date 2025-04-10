@@ -33,7 +33,7 @@ class Repository(ABC):
 
 
 class SQLAlchemyRepository(Repository):
-    def __init__(self, model):  # Correction du constructeur
+    def __init__(self, model):  
         self.model = model
 
     def add(self, obj):
@@ -60,7 +60,7 @@ class SQLAlchemyRepository(Repository):
             db.session.commit()
 
     def get_by_attribute(self, attr_name, attr_value, all=False):
-        # Correction ici, utiliser ** pour décompresser le dictionnaire
+        
         query = self.model.query.filter_by(**{attr_name: attr_value})
         if all:
             return query.all()
@@ -68,7 +68,7 @@ class SQLAlchemyRepository(Repository):
 
 
 class UserRepository(SQLAlchemyRepository):
-    def __init__(self):  # Correction du constructeur
+    def __init__(self):
         super().__init__(User)
 
     def get_user_by_email(self, email):
@@ -76,7 +76,7 @@ class UserRepository(SQLAlchemyRepository):
 
 
 class PlaceRepository(SQLAlchemyRepository):
-    def __init__(self):  # Correction du constructeur
+    def __init__(self): 
         super().__init__(Place)
 
     def add(self, place, amenities):

@@ -6,7 +6,7 @@ from app.models.amenity import Amenity
 
 
 class HBnBFacade:
-    def __init__(self):  # Utilise __init__ au lieu de _init_
+    def __init__(self): 
         self.user_repo = UserRepository()
         self.place_repo = PlaceRepository()
         self.review_repo = ReviewRepository()

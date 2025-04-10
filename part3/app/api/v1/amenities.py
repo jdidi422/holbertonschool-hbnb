@@ -5,7 +5,7 @@ from app.services import facade
 
 api = Namespace('amenities', description='Amenity operations')
 
-# Define the amenity model for input validation
+
 amenity_model = api.model('Amenity', {
     'name': fields.String(required=True, description='Name of the amenity')
 })
